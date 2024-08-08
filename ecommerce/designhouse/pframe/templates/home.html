@@ -1,0 +1,88 @@
+<html>
+<head>
+ <title>Data-Base</title>
+ {% load static %}
+ <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+
+ <style>
+ .container-fluid{
+   background-color:pink;
+ 
+   background-position:center;
+   position:relative;
+   font-family:"Courier New",Courier, monospace;
+   font-size:25px;
+   }
+ </style>
+</head>
+<body>
+ 
+ <div class="container-fluid">
+ <div class="col-md-offset-1 col-md-3">
+   <form action="addData" method="POST" autocomplete="off">
+   {% csrf_token %}
+   <h3 class="page-header text-primary text-center">Data-Base</h3>
+   <div class="form-group">
+   <label>Name</label>
+   <input type="text" class="form-control" name="name">
+   </div>
+   <div class="form-group">
+   <label>Age</label>
+   <input type="text" class="form-control" name="age">
+   </div>
+   
+   <div class="form-group">
+   <label>Address</label>
+   <input type="text" class="form-control" name="address">
+   </div>
+   <div class="form-group">
+   <label>Mail</label>
+   <input type="text" class="form-control" name="mail">
+   </div>
+    <div class="form-group">
+   <label>Contect</label>
+   <input type="text" class="form-control" name="Contect">
+   </div>
+   <div class="form-group pull-right">
+   <input type="submit" value="Save" class="btn btn-primary">
+   </div>
+ </form>
+ </div>
+ <div class="">
+   {% if datas %}
+   <h3 class="page-header text-primary text-center">View Details</h3>
+   <table class="table table-bordered">
+   <thead>
+    <tr>
+    <th>S.No</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Contect</th>
+    
+    <th>Address</th>
+    <th>Mail</th>
+    <th>Update</th>
+    <th>Delete</th>
+    </tr>
+   </thead>
+    {% for data in datas%}
+   <tbody>
+    <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{data.Name}}</td>
+    <td>{{data.Age}}</td>
+    <td>{{data.Contect}}</td>
+     
+    <td>{{data.Address}}</td>
+    <td>{{data.Mail}}</td>
+    <td><a class="btn btn-success" href="updateData/{{data.id}}">Update</a></td>
+    <td><a class="btn btn-danger" href="deleteData/{{data.id}}">Delete</a></td>
+    </tr>
+   </tbody>
+    {% endfor %}
+   </table>
+   {% endif %}
+ </div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,659 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a:hover {
+    text-decoration: none;
+    color: red;
+}
+
+a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: red;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+a:hover::after {
+    width: 95%;
+}
+
+.wishlist a::after,
+.cart a::after,
+.user a::after {
+    content: none;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    font-size: 20px;
+    background-color: #f1f1f1;
+    padding: 10px;
+    position: fixed; /* Fix navbar at the top */
+    width: 100%; /* Ensure the navbar takes the full width */
+    top: 0;
+    z-index: 1000; /* Ensure it stays on top of other elements */
+}
+
+li {
+    position: relative;
+    margin: 0 5px;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    position: relative;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    white-space: nowrap;
+    color: black;
+}
+
+.logo .design {
+    color: grey;
+}
+
+.logo .house {
+    color: black;
+}
+
+.centered-links {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.right-icons {
+    display: flex;
+    align-items: center;
+}
+
+.wishlist a,
+.cart a,
+.user a {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    left: 0;
+    top: 100%;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 80px; 
+      }
+
+.slides {
+    position: relative;
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+}
+
+.slide {
+    position: relative;
+    min-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: zoom-in-out 6s infinite;
+}
+
+.slide .text {
+    position: absolute;
+    color: white;
+    font-size: 55px;
+    text-align: left;
+    font-family: Algerian;
+    padding: 20px;
+    border-radius: 10px;
+    opacity: 0;
+    animation-duration: 6s;
+    animation-fill-mode: forwards;
+    left: 20px;
+}
+
+.slide .text1 {
+    bottom: -100%;
+    animation-name: slide-in-bottom;
+}
+
+.slide .text2 {
+    bottom: -100%;
+    animation-name: slide-in-bottom;
+}
+
+@keyframes slide-in-bottom {
+    0% {
+        bottom: -100%;
+        opacity: 0;
+    }
+    50% {
+        bottom: 50%;
+        opacity: 1;
+    }
+    100% {
+        bottom: 50%;
+        opacity: 1;
+    }
+}
+
+@keyframes zoom-in-out {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.shop-button {
+    margin-left: 4%;
+    display:inline-block;
+    position: absolute;
+    bottom: -0px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, bottom 0.5s ease;
+    animation-duration: 6s;
+}
+
+.shop-button:hover {
+    background-color: brown;
+    color: white;
+}
+
+.slide .shop-button {
+    animation-name: slide-in;
+    animation-fill-mode: forwards;
+    animation-duration: 6s;
+}
+
+@keyframes slide-in {
+    0% {
+        bottom: -100px;
+    }
+    100% {
+        bottom: 60px;
+    }
+}
+
+.container {
+    text-align: center;
+    font-size: 50px;
+    font-family: Matura MT Script Capitals;
+}
+
+.image-slideshow {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    max-width: 100%;
+    margin: 20px auto;
+}
+
+.image-slides {
+    display: flex;
+    transition: transform 1s ease-in-out;
+    width: calc(100% * 6);
+}
+
+.image-slide {
+    min-width: 22%; 
+    padding: 10px;
+    margin-right:150px;
+    transition: transform 0.5s ease;
+    position:relative;
+}
+
+.image-slide img {
+    width: 100%;
+    border-radius: 10px; 
+}
+
+.image-slide:hover {
+    transform: scale(1.1); 
+}
+
+.hand-symbol {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.hand-symbol-left {
+    left: 10px;
+}
+
+.hand-symbol-right {
+    right: 10px;
+}
+
+.hand-symbol:hover {
+    background-color: orange;
+    color: white;
+}
+
+.image-slide {
+    text-align: center;
+    font-size: 18px;
+    font-family: castellar;
+    padding-bottom: 120px;
+}
+
+.image-slide:hover .image-slide-text {
+    background-color: orange;
+    color: black;
+}
+
+.poster3-container {
+    float: right;
+} 
+
+.poster3-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    margin: 20px auto;
+}
+
+.poster3 {
+    margin-right: 4%;
+    width: 40%; /* Adjust as needed */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.5s ease-in-out;
+}
+.poster3:hover {
+transform: scale(1.1); /* Zoom in effect */
+ }
+
+.poster3-text {
+    margin-left: 4%;
+    width: 45%; /* Adjust as needed */
+    padding: 20px;
+    border-radius: 10px; 
+}
+
+p {
+    font-size: 30px;
+    font-family: "Times New Roman", Times, serif;
+    color:grey;
+}
+
+h2 {
+    font-size: 60px;
+    font-family: Times New Roman;
+    color: black;
+}
+
+h3 {
+    font-size: 60px;
+    font-family:Times New Roman;
+    color:rgb(221, 30, 30);
+}
+
+h4{
+   font-size:40px;
+   color:rgb(221, 30, 30);
+   } 
+
+h5{
+   font-size:30px;
+    color:rgb(221, 30, 30);
+   }
+
+
+
+.nameplate-container {
+    float: left;
+} 
+
+.nameplate-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    margin: 20px auto;
+}
+
+#myimage{
+    margin-top:10%;
+    margin-left: 4%;
+    width: 40%; /* Adjust as needed */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.5s ease-in-out;
+}
+.nameplate:hover {
+transform: scale(1.1); /* Zoom in effect */
+ }
+
+.nameplate-text {
+    width: 45%; /* Adjust as needed */
+    padding: 20px;
+    border-radius: 10px; 
+    margin-left: 50%;
+    margin-top: -45%;
+
+}   
+
+#mybutton
+{
+     margin-bottom:3%;
+     margin-left: 50%;
+} 
+
+ .poster4-container {
+    float: right;
+} 
+
+.poster4-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    margin: 20px auto;
+}
+
+.poster4 {
+    margin-top:7%;
+    margin-right: 4%;
+    width: 60%; /* Adjust as needed */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.5s ease-in-out;
+}
+.poster4:hover {
+transform: scale(1.1); /* Zoom in effect */
+ }
+
+.poster4-text {
+    margin-left: 4%;
+    width: 45%; /* Adjust as needed */
+    padding: 20px;
+    border-radius: 10px; 
+}
+#mybutton1
+{ 
+margin-bottom:3%;
+}
+
+#headings
+{
+
+text-align:center;
+padding-top: 70%;
+}
+
+#poster
+{
+margin-top: 6%;
+width:118%;
+height:550px;
+margin-bottom: 0;
+
+}
+
+.image-container {
+position: absolute;
+display: inline-block;
+}
+.centered {
+position: absolute;
+top:140px;
+left:680px;
+font-size:40px ;
+font-family: Algerian;
+color: rgb(221, 30, 30);
+transform: translate(-50%, -50%);
+}
+
+.custom
+{
+position:absolute;
+border-radius:50%;
+margin-top:-10px;
+top:77%;
+bottom:35%;
+width:70px;
+height:70px;
+right:0;
+left:8%;
+}
+
+#feedback
+{
+margin-left:20%;
+margin-top:20%;
+margin-bottom:10%;
+font-size: 40%;
+
+}
+#feedback .feed{
+color:black;
+
+}  
+
+#feedback .back{
+color:rgb(221, 30, 30);
+}
+
+.custom-card {
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top:-60%;
+    bottom:280%;
+    height:220%;
+    width:85%;
+    cursor:pointer;
+     transition: transform 0.3s ease, border 0.3s ease;
+   position:relative;
+   
+}
+
+
+
+.custom-card-body {
+    padding: 7%;
+       
+}
+
+.card-title
+{
+    font-size:25px;
+}
+.card-text
+{
+  text-align: left;
+  font-size: 40%;
+}
+
+
+
+
+.custom-card:hover {
+               
+               transform: scale(1.05); /* Zoom in */
+            border: 2px solid black; /* Add black border */
+}
+
+
+footer {
+    position: relative;
+    height: 200px;
+    display:flex;
+    flex-direction:column;
+}
+.footer-container {
+    background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 300%;
+    margin-top: 46%;
+   
+}
+.footer-container img.footer {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.footer-container .shopname {
+   
+    position: absolute;
+    top: 43%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#logo {
+    font-size: 30px;
+    font-weight: bold;
+    white-space: nowrap;
+    color: black;
+}
+
+.shopname .design {
+    color: grey;
+}
+
+.shopname .house {
+    color: black;
+}
+
+#social
+{
+margin:0 23px;
+
+}
+
+#social:hover
+{
+ color:black;
+}
+
+#address
+{
+position: absolute;
+margin-left:52%;
+bottom: 73%;
+font-family: times new roman;
+ 
+}
+#contactus
+{
+color:white;
+font-size: 25px;
+margin-bottom:-250px;
+margin-right:30px;
+}
+
+
+#contactus1
+{
+color:black;
+font-size:45px;
+margin-bottom:-45px;
+margin-right:35px;
+}
+
+#contactus1:hover
+{
+color:white;
+}
+
+#contactus br + br {
+display: none;
+}
+
+#contactus {
+line-height: 0.6;
+}
+
+
+
+#contactus span {
+display: block;
+}
+
+#contactus span:hover {
+color: black;
+}
